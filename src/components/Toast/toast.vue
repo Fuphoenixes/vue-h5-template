@@ -27,9 +27,3 @@
     },
   }
 </script>
-
-<style>
-  .van-overlay{
-    background: transparent;
-  }
-</style>
