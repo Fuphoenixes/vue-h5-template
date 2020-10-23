@@ -3,16 +3,18 @@ import App from './App.vue'
 import router from './router'
 import './styles/index.less'
 
-import { Lazyload, Toast, Dialog } from 'vant';
-import loadingPlugin from '@/mixins/loadingPlugin'
+import { Lazyload, Toast as VantTost, Dialog } from 'vant';
+import Toast from '@/components/Toast'
+import loadingPlugin from "v-loading-plugin";
 import afterRouteEnter from '@/mixins/afterRouteEnter'
 
 Vue.use(Lazyload);
-Vue.use(Toast);
+Vue.use(VantTost);
 Vue.use(Dialog);
+Vue.use(Toast);
+Vue.use(loadingPlugin);
 
 Vue.mixin(afterRouteEnter);
-Vue.mixin(loadingPlugin);
 
 Vue.config.productionTip = false;
 

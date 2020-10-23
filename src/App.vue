@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-import phoneVersion from '@/utils/phoneVersion.js'
+import userAgent from '@/utils/userAgent.js'
 import { routeTransitionLimit } from '@/config.js'
 import { store, setCachedViews } from '@/store/cachedViews.js'
 
@@ -38,7 +38,7 @@ export default {
           this.transitionName = ''
         }
         //低版本安卓机机不开启路由动画，避免卡顿
-        if(phoneVersion !== 'ios' && phoneVersion < routeTransitionLimit){
+        if(userAgent === 'Android' && userAgent < routeTransitionLimit){
            this.transitionName = ''
         }
       },
@@ -48,7 +48,7 @@ export default {
   methods: {
     afterEnter() {
       this.$bus.$emit('afterRouteEnter')
-  
+
       //路由缓存
       if(!this.to)return;
       const routes = this.$router.options.routes;

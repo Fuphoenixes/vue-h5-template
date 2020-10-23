@@ -9,9 +9,8 @@
   "dependencies": {
     "@searchfe/user-agent": "^1.2.7",
     "core-js": "^2.6.5",
-    "loading-plugin": "^1.0.1",
-    "qiniu": "^7.2.2",
     "qiniu-js": "^2.5.4",
+    "v-loading-plugin": "^1.0.7",
     "vant": "^2.0.1",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",

@@ -44,14 +44,13 @@
       </div>
     </div>
     <Tabbar/>
-    <ActivityIndicator :visible="$loadingPlugin.getList"/>
+    <toast v-model="$loadingPlugin.getList"/>
   </div>
 </template>
 
 <script>
 import { Swipe, SwipeItem, Image, Row, Col } from 'vant';
 import Tabbar from '@/components/Tabbar'
-import ActivityIndicator from '@/components/ActivityIndicator'
 import timeout from '@/utils/timeout.js'
 
 const banner = require('../../assets/banner.png');
@@ -65,8 +64,7 @@ export default {
     [Image.name]:Image,
     [Row.name]: Row,
     [Col.name]: Col,
-    Tabbar,
-    ActivityIndicator
+    Tabbar
   },
   data() {
     return {
@@ -78,16 +76,14 @@ export default {
     await this.getList();
   },
   methods: {
+    async getList(){
+      await timeout(3000)
+    },
     editSwiper() {
       this.$router.push('/swiper')
     },
     editGoods() {
       this.$router.push('/push')
-    },
-  },
-  asyncMethods: {
-    async getList(){
-      await timeout(3000)
     }
   }
 };

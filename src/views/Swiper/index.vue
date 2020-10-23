@@ -18,10 +18,10 @@
         <van-cell title="链接" is-link value="请选择链接" />
         <van-switch-cell v-model="checked" title="是否显示" />
       </van-cell-group>
-      <Upload 
+      <Upload
         onlyOne
-        title="幻灯片图片：" 
-        :images.sync="images" 
+        title="幻灯片图片："
+        :images.sync="images"
         token="M6YfaiMM5rPrvHpDuUvBgV7rTUPSyMz2VvT2svsX:qzbb-eOQtSSNXDR6uA0ia4F4U3s=:eyJzY29wZSI6ImRsaC1pbWFnZXMiLCJkZWFkbGluZSI6MTU2MDg0MTkzM30="
       />
       <div class="tip">建议尺寸：750*358，请将所有幻灯片尺寸保持一致</div>
@@ -29,14 +29,13 @@
     <div class="page-button">
       <van-button @click="submit">提 交</van-button>
     </div>
-    <ActivityIndicator :visible="$loadingPlugin.getList"/>
+    <toast v-model="$loadingPlugin.getList"/>
   </div>
 </template>
 
 <script>
 import { NavBar, Button, Field, Cell, CellGroup, SwitchCell } from 'vant';
 import Upload from '@/components/Upload'
-import ActivityIndicator from '@/components/ActivityIndicator'
 import timeout from '@/utils/timeout.js'
 import { getViewInstanceByName } from '@/store/cachedViews.js'
 
@@ -49,8 +48,7 @@ export default {
     [Cell.name]:Cell,
     [CellGroup.name]:CellGroup,
     [SwitchCell.name]:SwitchCell,
-    Upload,
-    ActivityIndicator
+    Upload
   },
   data() {
     return {
@@ -64,17 +62,15 @@ export default {
     await this.getList()
   },
   methods:{
+    async getList(){
+      await timeout(3000)
+      this.sort = 5
+    },
     submit(){
       const instance = getViewInstanceByName('shop');
       instance && instance.getList();
     }
-  },
-  asyncMethods:{
-    async getList(){
-      await timeout(3000)
-      this.sort = 5
-    }
-  },
+  }
 }
 </script>
 
