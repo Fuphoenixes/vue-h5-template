@@ -61,7 +61,6 @@ export function paramsDel(
   return query
 }
 
-
 /**
  * @param {string} path
  * @returns {Boolean}

@@ -5,7 +5,7 @@ import { obj2Params, isExternal } from './index.js'
 // axios 文档 https://www.kancloud.cn/yunye/axios/234845
 
 const CancelToken = axios.CancelToken
-let reLoginFlag = false
+const reLoginFlag = false
 
 const request = ({
   mock = false, // 是否使用mock接口
@@ -94,7 +94,7 @@ const request = ({
         } else if (noMessage === 0) {
           Toast.fail({
             message: res.message || '未知错误',
-            duration: 3 * 1000,
+            duration: 3 * 1000
           })
         }
         reject(new Error(res.message || 'Error'))
@@ -106,7 +106,7 @@ const request = ({
       if (noMessage === 0 || noMessage === 1) {
         Toast.fail({
           message: error.message || '请求失败',
-          duration: 3 * 1000,
+          duration: 3 * 1000
         })
       }
       reject(error)

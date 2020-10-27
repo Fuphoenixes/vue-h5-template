@@ -20,6 +20,7 @@ module.exports = {
       apiMocker(app, path.resolve('./mock/index.js'))
     }
   },
+  lintOnSave: process.env.NODE_ENV !== 'production',
 	productionSourceMap: false,
 	configureWebpack: () =>{
 		if(process.env.NODE_ENV === 'production'){

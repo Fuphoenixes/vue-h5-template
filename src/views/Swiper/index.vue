@@ -13,13 +13,13 @@
         <van-button>下一张</van-button>
       </div>
       <van-cell-group>
-        <van-field v-model="sort" clearable label="排序" placeholder="请输入排序"/>
-        <van-field v-model="title" clearable label="标题" placeholder="请输入标题名称"/>
+        <van-field v-model="sort" clearable label="排序" placeholder="请输入排序" />
+        <van-field v-model="title" clearable label="标题" placeholder="请输入标题名称" />
         <van-cell title="链接" is-link value="请选择链接" />
         <van-switch-cell v-model="checked" title="是否显示" />
       </van-cell-group>
       <Upload
-        onlyOne
+        only-one
         title="幻灯片图片："
         :images.sync="images"
         token="M6YfaiMM5rPrvHpDuUvBgV7rTUPSyMz2VvT2svsX:qzbb-eOQtSSNXDR6uA0ia4F4U3s=:eyJzY29wZSI6ImRsaC1pbWFnZXMiLCJkZWFkbGluZSI6MTU2MDg0MTkzM30="
@@ -29,49 +29,49 @@
     <div class="page-button">
       <van-button @click="submit">提 交</van-button>
     </div>
-    <toast v-model="$loadingPlugin.getList"/>
+    <toast v-model="$loadingPlugin.getList" />
   </div>
 </template>
 
 <script>
-import { NavBar, Button, Field, Cell, CellGroup, SwitchCell } from 'vant';
-import Upload from '@/components/Upload'
-import { timeout } from '@/utils'
-import getCachedViewByName from '@/utils/getCachedViewByName'
+  import { NavBar, Button, Field, Cell, CellGroup, SwitchCell } from 'vant'
+  import Upload from '@/components/Upload'
+  import { timeout } from '@/utils'
+  import getCachedViewByName from '@/utils/getCachedViewByName'
 
-export default {
-  name:'swiper',
-  components: {
-    [NavBar.name]:NavBar,
-    [Button.name]:Button,
-    [Field.name]:Field,
-    [Cell.name]:Cell,
-    [CellGroup.name]:CellGroup,
-    [SwitchCell.name]:SwitchCell,
-    Upload
-  },
-  data() {
-    return {
-      sort:2,
-      title:'',
-      checked:true,
-      images:[]
-    }
-  },
-  async created(){
-    await this.getList()
-  },
-  methods:{
-    async getList(){
-      await timeout(3000)
-      this.sort = 5
+  export default {
+    name: 'swiper',
+    components: {
+      [NavBar.name]: NavBar,
+      [Button.name]: Button,
+      [Field.name]: Field,
+      [Cell.name]: Cell,
+      [CellGroup.name]: CellGroup,
+      [SwitchCell.name]: SwitchCell,
+      Upload
     },
-    submit(){
-      const instance = getCachedViewByName('shop');
-      instance && instance.getList();
+    data() {
+      return {
+        sort: 2,
+        title: '',
+        checked: true,
+        images: []
+      }
+    },
+    async created() {
+      await this.getList()
+    },
+    methods: {
+      async getList() {
+        await timeout(3000)
+        this.sort = 5
+      },
+      submit() {
+        const instance = getCachedViewByName('shop')
+        instance && instance.getList()
+      }
     }
   }
-}
 </script>
 
 <style lang="less" scoped>

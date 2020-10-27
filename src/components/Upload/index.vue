@@ -1,111 +1,111 @@
 <template>
-   <div  class="upload">
+  <div class="upload">
     <div v-if="title" class="title">
-      {{title}}
+      {{ title }}
     </div>
     <div class="image-picker">
-      <div v-for="(item,index) in renderImages" class="image-item" key="index">
+      <div v-for="(item,index) in renderImages" :key="index" class="image-item">
         <div
           class="image"
-          :style='{backgroundImage: `url("${item.url}")`}'
+          :style="{backgroundImage: `url(&quot;${item.url}&quot;)`}"
           @click="onImageClick(index)"
         />
         <div v-if="!disable" class="image-close" @click="(e)=>remove(e,index)">
-          <img src="./cha.png" alt=""/>
+          <img src="./cha.png" alt="">
         </div>
         <div v-show="item.loading" class="image-bg">
-          <span>{{parseInt(item.percent)}}%</span>
+          <span>{{ parseInt(item.percent) }}%</span>
         </div>
         <div v-show="item.error" class="image-bg">
-          <svg-icon icon-class="shanchucha" class-name="shanchucha"></svg-icon>
+          <svg-icon icon-class="shanchucha" class-name="shanchucha" />
         </div>
       </div>
       <div v-show="selectable" class="input-item">
-        <svg-icon icon-class="jia"></svg-icon>
-        <input type="file" :multiple="multi" :accept="accept" @change="uploadEvent" :key="JSON.stringify(renderImages)"/>
+        <svg-icon icon-class="jia" />
+        <input :key="JSON.stringify(renderImages)" type="file" :multiple="multi" :accept="accept" @change="uploadEvent">
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import { ImagePreview, Toast } from 'vant';
-  import * as qiniu from 'qiniu-js';
+  import { ImagePreview, Toast } from 'vant'
+  import * as qiniu from 'qiniu-js'
 
-  Toast.allowMultiple();
+  Toast.allowMultiple()
   Toast.setDefaultOptions({
     duration: 2000
   })
   export default {
-    props:{
-      title : String, //上传的标题 可选
-      images: { //上传成功的图片数组 必传 eg: [{url:''}]
+    props: {
+      title: String, // 上传的标题 可选
+      images: { // 上传成功的图片数组 必传 eg: [{url:''}]
         type: Array,
         required: true
       },
-      token: { //上传地址 必传
+      token: { // 上传地址 必传
         type: String,
         required: true
       },
-      domain: { //七牛的 domain
+      domain: { // 七牛的 domain
         type: String,
-        default:'http://image.haoyunqi.com.cn/'
+        default: 'http://image.haoyunqi.com.cn/'
       },
-      onlyOne: { //可选，默认false，传true时，表示只能上传一张图片
+      onlyOne: { // 可选，默认false，传true时，表示只能上传一张图片
         type: Boolean,
         default: false
       },
-      fileName: { //上传文件的字段名，公司上传api要求为fileVal 可选
+      fileName: { // 上传文件的字段名，公司上传api要求为fileVal 可选
         type: String,
         default: 'fileVal'
       },
-      multiple: { //是否允许一次多张上传，默认允许  可选
+      multiple: { // 是否允许一次多张上传，默认允许  可选
         type: Boolean,
         default: true
       },
-      accept:  { //上传文件格式要求 可选
+      accept: { // 上传文件格式要求 可选
         type: String,
         default: 'image/*'
       },
-      fileType: String, //上传文件请求头相关， 可选，公司api没做要求可以不管
-      maxLimit: { //限制最大上传张数，默认为10张
+      fileType: String, // 上传文件请求头相关， 可选，公司api没做要求可以不管
+      maxLimit: { // 限制最大上传张数，默认为10张
         type: Number,
         default: 10
       },
-      onceLimit: { //限制一次性上传的张数，默认为10张
+      onceLimit: { // 限制一次性上传的张数，默认为10张
         type: Number,
         default: 10
       },
-      disable: {  //禁止上传，只能预览
+      disable: { // 禁止上传，只能预览
         type: Boolean,
         default: false
-      },
-    },
-    data(){
-      return{
-        renderImages: [],
-        resImages: [],
       }
     },
-    computed:{
-      multi(){
-        return this.onlyOne ? false :  this.multiple
+    data() {
+      return {
+        renderImages: [],
+        resImages: []
+      }
+    },
+    computed: {
+      multi() {
+        return this.onlyOne ? false : this.multiple
       },
-      selectable(){
-        const { onlyOne, renderImages, maxLimit, disable } = this;
-        let rtn = true;
-        if(onlyOne && renderImages.length === 1) rtn = false;
-        if(!onlyOne && renderImages.length >= maxLimit) rtn = false;
-        if(disable) rtn = false;
+      selectable() {
+        const { onlyOne, renderImages, maxLimit, disable } = this
+        let rtn = true
+        if (onlyOne && renderImages.length === 1) rtn = false
+        if (!onlyOne && renderImages.length >= maxLimit) rtn = false
+        if (disable) rtn = false
         return rtn
       }
     },
-    watch:{
-      images:{
-        handler(val){
-          if(val !== this.resImages){
-            this.renderImages = JSON.parse(JSON.stringify(val));
-            this.resImages = val;
+    watch: {
+      images: {
+        handler(val) {
+          if (val !== this.resImages) {
+            this.renderImages = JSON.parse(JSON.stringify(val))
+            this.resImages = val
           }
         },
         immediate: true,
@@ -113,94 +113,94 @@
       }
     },
     methods: {
-      uploadEvent(e){
-        const { onceLimit, maxLimit, renderImages } = this;
-        const files = e.target.files;
-        if(files.length > onceLimit){
-          Toast(`一次最多上传${onceLimit}张图片`);
+      uploadEvent(e) {
+        const { onceLimit, maxLimit, renderImages } = this
+        const files = e.target.files
+        if (files.length > onceLimit) {
+          Toast(`一次最多上传${onceLimit}张图片`)
           return
         }
-        if(files.length + renderImages.length > maxLimit){
-          Toast(`最多上传${maxLimit}张图片`);
+        if (files.length + renderImages.length > maxLimit) {
+          Toast(`最多上传${maxLimit}张图片`)
           return
         }
-        for(let i=0; i<files.length; i++){
-          this._upload(files[i],i+renderImages.length)
+        for (let i = 0; i < files.length; i++) {
+          this._upload(files[i], i + renderImages.length)
         }
       },
-      _upload(file,index){
-        const { token, domain, onChange, renderImages } = this;
-        const _this = this;
-        if(file.size > 10 * 1024 * 1024 ){
-          Toast('单张图片请不要超过10M');
+      _upload(file, index) {
+        const { token, domain, renderImages } = this
+        const _this = this
+        if (file.size > 10 * 1024 * 1024) {
+          Toast('单张图片请不要超过10M')
           return
         }
-        if(renderImages[index])return;
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = function (e) {
-          _this.$set(renderImages,index,{
+        if (renderImages[index]) return
+        const reader = new FileReader()
+        reader.readAsDataURL(file)
+        reader.onload = function(e) {
+          _this.$set(renderImages, index, {
             url: e.target.result,
             percent: 0,
             loading: true
           })
-        };
+        }
         const config = {
           useCdnDomain: true,
           region: qiniu.region.z0
-        };
-        let key = (new Date().getTime() + '' + ((Math.random()*1000) | 0)).substring(8);
-        const arr = file.name.split('.');
-        if(arr.length>1){
-          key = arr[0].substr(0,4) + key + '.' + arr[arr.length-1];
-        }else{
-          key = arr[0].substr(0,4) + key
         }
-        const observable = qiniu.upload(file, key, token, {}, config);
+        let key = (new Date().getTime() + '' + ((Math.random() * 1000) | 0)).substring(8)
+        const arr = file.name.split('.')
+        if (arr.length > 1) {
+          key = arr[0].substr(0, 4) + key + '.' + arr[arr.length - 1]
+        } else {
+          key = arr[0].substr(0, 4) + key
+        }
+        const observable = qiniu.upload(file, key, token, {}, config)
         observable.subscribe({
-          next(res){
-            const { renderImages } = _this;
-            if(!renderImages[index])return;
-            _this.$set(renderImages[index],'percent',res.total.percent);
+          next(res) {
+            const { renderImages } = _this
+            if (!renderImages[index]) return
+            _this.$set(renderImages[index], 'percent', res.total.percent)
           },
-          error(){
-            const { renderImages } = _this;
-            if(!renderImages[index])return;
-            _this.$set(renderImages[index],'error',true);
-            _this.$set(renderImages[index],'loading',false);
+          error() {
+            const { renderImages } = _this
+            if (!renderImages[index]) return
+            _this.$set(renderImages[index], 'error', true)
+            _this.$set(renderImages[index], 'loading', false)
           },
-          complete(res){
-            console.log(res.key,'key')
-            const { renderImages, resImages } = _this;
-            if(!renderImages[index])return;
-            _this.$set(renderImages[index],'error',false);
-            _this.$set(renderImages[index],'loading',false);
-            _this.$set(resImages,index,{
+          complete(res) {
+            console.log(res.key, 'key')
+            const { renderImages, resImages } = _this
+            if (!renderImages[index]) return
+            _this.$set(renderImages[index], 'error', false)
+            _this.$set(renderImages[index], 'loading', false)
+            _this.$set(resImages, index, {
               url: domain + res.key
             })
-            _this.$emit('update:images',resImages);
+            _this.$emit('update:images', resImages)
           }
         })
       },
-      onImageClick(index){
+      onImageClick(index) {
         ImagePreview({
-          images: this.renderImages.map(item=>item.url),
+          images: this.renderImages.map(item => item.url),
           startPosition: index,
-          closeOnPopstate:true
-        });
+          closeOnPopstate: true
+        })
       },
-      remove(e,index){
-        e.preventDefault();
-        e.stopPropagation();
-        const { renderImages, resImages } = this;
-        renderImages.splice(index,1);
-        resImages.splice(index,1);
-        this.$emit('update:images',resImages);
+      remove(e, index) {
+        e.preventDefault()
+        e.stopPropagation()
+        const { renderImages, resImages } = this
+        renderImages.splice(index, 1)
+        resImages.splice(index, 1)
+        this.$emit('update:images', resImages)
       },
-      parseInt(num){
+      parseInt(num) {
         return parseInt(num)
       }
-    },
+    }
   }
 </script>
 

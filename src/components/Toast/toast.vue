@@ -1,12 +1,12 @@
 <template>
   <van-toast
     v-bind="$attrs"
-    v-on="$listeners"
     :type="type"
     :message="message"
     :duration="duration"
     :forbid-click="forbidClick"
-  ></van-toast>
+    v-on="$listeners"
+  />
 </template>
 
 <script>
@@ -17,11 +17,11 @@
         type: String,
         default: 'loading'
       },
-      message:{
+      message: {
         type: String,
         default: '加载中...'
       },
-      duration:{
+      duration: {
         type: Number,
         default: 0
       },
@@ -29,6 +29,6 @@
         type: Boolean,
         default: true
       }
-    },
+    }
   }
 </script>

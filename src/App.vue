@@ -41,7 +41,7 @@
       // 设置缓存页面， 前进加载后退缓存
       _changeCachedViews(to) {
         if (!to.meta || !to.meta.level) return
-        const routes = this.$router.options.routes;
+        const routes = this.$router.options.routes
         this.cachedViews = this.cachedViews.filter(item => {
           const itRoute = routes.find(route => route.name === item)
           return itRoute && itRoute.meta && itRoute.meta.level < to.meta.level
@@ -49,18 +49,18 @@
       },
       afterEnter() {
         this.$bus.$emit('afterRouteEnter')
-      },
+      }
     },
     render(h) {
       const { cachedViews, transitionName, afterEnter } = this
       const keepAlive = (
         <keep-alive include={cachedViews}>
-          <router-view class="router"/>
+          <router-view class='router'/>
         </keep-alive>
       )
       window.__KEEP_ALIVE__ = keepAlive
       return (
-        <div id="app">
+        <div id='app'>
           <transition name={transitionName} onAfterEnter={afterEnter}>
             {keepAlive}
           </transition>
@@ -123,7 +123,6 @@
   .slide-right-leave-to {
     transform: translate(100%, 0);
   }
-
 
   .slide-left-enter {
     transform: translate(100%, 0);

@@ -10,23 +10,23 @@
               fit="contain"
               lazy-load
               :src="banner"
-            ></van-image>
+            />
           </van-swipe-item>
         </van-swipe>
         <div class="swipe-edit" @click="editSwiper">
-          <svg-icon icon-class="edit"></svg-icon>
+          <svg-icon icon-class="edit" />
         </div>
       </div>
       <div class="section">
         <van-row gutter="7" class="goods">
-          <van-col span="12" v-for="item in 6" :key="item">
+          <van-col v-for="item in 6" :key="item" span="12">
             <div class="good">
               <van-image
                 class="good-img"
                 fit="contain"
                 lazy-load
                 :src="good"
-              ></van-image>
+              />
               <div class="good-dec">
                 蜜炼川贝枇杷膏
               </div>
@@ -35,7 +35,7 @@
                   ￥<span>36.0</span>
                 </div>
                 <div class="good-aside-edit" @click="editGoods">
-                  <svg-icon icon-class="edit"></svg-icon>
+                  <svg-icon icon-class="edit" />
                 </div>
               </div>
             </div>
@@ -43,50 +43,50 @@
         </van-row>
       </div>
     </div>
-    <Tabbar/>
-    <toast v-model="$loadingPlugin.getList"/>
+    <Tabbar />
+    <toast v-model="$loadingPlugin.getList" />
   </div>
 </template>
 
 <script>
-import { Swipe, SwipeItem, Image, Row, Col } from 'vant';
-import Tabbar from '@/components/Tabbar'
-import { timeout } from '@/utils'
+  import { Swipe, SwipeItem, Image, Row, Col } from 'vant'
+  import Tabbar from '@/components/Tabbar'
+  import { timeout } from '@/utils'
 
-const banner = require('../../assets/banner.png');
-const good = require('../../assets/good.png');
+  const banner = require('../../assets/banner.png')
+  const good = require('../../assets/good.png')
 
-export default {
-  name: 'shop',
-  components: {
-    [Swipe.name]:Swipe,
-    [SwipeItem.name]:SwipeItem,
-    [Image.name]:Image,
-    [Row.name]: Row,
-    [Col.name]: Col,
-    Tabbar
-  },
-  data() {
-    return {
-      banner,
-      good
-    }
-  },
-  async created(){
-    await this.getList();
-  },
-  methods: {
-    async getList(){
-      await timeout(3000)
+  export default {
+    name: 'shop',
+    components: {
+      [Swipe.name]: Swipe,
+      [SwipeItem.name]: SwipeItem,
+      [Image.name]: Image,
+      [Row.name]: Row,
+      [Col.name]: Col,
+      Tabbar
     },
-    editSwiper() {
-      this.$router.push('/swiper')
+    data() {
+      return {
+        banner,
+        good
+      }
     },
-    editGoods() {
-      this.$router.push('/push')
+    async created() {
+      await this.getList()
+    },
+    methods: {
+      async getList() {
+        await timeout(3000)
+      },
+      editSwiper() {
+        this.$router.push('/swiper')
+      },
+      editGoods() {
+        this.$router.push('/push')
+      }
     }
   }
-};
 </script>
 
 <style lang="less" scoped>

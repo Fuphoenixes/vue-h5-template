@@ -8,21 +8,21 @@
     />
     <div class="push page-content">
       <van-cell-group>
-        <van-field v-model="sort" clearable label="排序" placeholder="请输入排序"/>
-        <van-field v-model="title" clearable label="名称" placeholder="请输入商品名称"/>
-        <van-field v-model="price" clearable label="价格" placeholder="请输入价格"/>
+        <van-field v-model="sort" clearable label="排序" placeholder="请输入排序" />
+        <van-field v-model="title" clearable label="名称" placeholder="请输入商品名称" />
+        <van-field v-model="price" clearable label="价格" placeholder="请输入价格" />
       </van-cell-group>
       <Upload
-        title="商品图片：" 
-        :images.sync="images" 
+        title="商品图片："
+        :images.sync="images"
         token="M6YfaiMM5rPrvHpDuUvBgV7rTUPSyMz2VvT2svsX:qzbb-eOQtSSNXDR6uA0ia4F4U3s=:eyJzY29wZSI6ImRsaC1pbWFnZXMiLCJkZWFkbGluZSI6MTU2MDg0MTkzM30="
       />
       <ul class="list">
-        <li class="item" v-for="(item,index) in list" :key="index">
-          <input type="text" v-model="item.key" placeholder="参数名称"/>
-          <input type="text" v-model="item.value" placeholder="参数值"/>
-          <van-button v-if="index===list.length-1" icon="add" type="primary" @click="add"></van-button>
-          <van-button v-else icon="delete" type="danger" @click="del(index)"></van-button>
+        <li v-for="(item,index) in list" :key="index" class="item">
+          <input v-model="item.key" type="text" placeholder="参数名称">
+          <input v-model="item.value" type="text" placeholder="参数值">
+          <van-button v-if="index===list.length-1" icon="add" type="primary" @click="add" />
+          <van-button v-else icon="delete" type="danger" @click="del(index)" />
         </li>
       </ul>
     </div>
@@ -33,41 +33,41 @@
 </template>
 
 <script>
-import { NavBar, Button, Field, Cell, CellGroup, SwitchCell  } from 'vant';
-import Upload from '@/components/Upload'
+  import { NavBar, Button, Field, Cell, CellGroup, SwitchCell } from 'vant'
+  import Upload from '@/components/Upload'
 
-export default {
-  name:'push',
-  components: {
-    [NavBar.name]:NavBar,
-    [Button.name]:Button,
-    [Field.name]:Field,
-    [Cell.name]:Cell,
-    [CellGroup.name]:CellGroup,
-    [SwitchCell.name]:SwitchCell,
-    Upload
-  },
-  data() {
-    return {
-      sort:8,
-      title:'',
-      price:'',
-      list:[
-        {key:'含量',value:'120粒'},
-        {key:'', value:'' }
-      ],
-      images:[]
-    }
-  },
-  methods: {
-    add() {
-      this.list.push({key:'', value:'' })
+  export default {
+    name: 'push',
+    components: {
+      [NavBar.name]: NavBar,
+      [Button.name]: Button,
+      [Field.name]: Field,
+      [Cell.name]: Cell,
+      [CellGroup.name]: CellGroup,
+      [SwitchCell.name]: SwitchCell,
+      Upload
     },
-    del(index){
-      this.list.splice(index,1)
+    data() {
+      return {
+        sort: 8,
+        title: '',
+        price: '',
+        list: [
+          { key: '含量', value: '120粒' },
+          { key: '', value: '' }
+        ],
+        images: []
+      }
+    },
+    methods: {
+      add() {
+        this.list.push({ key: '', value: '' })
+      },
+      del(index) {
+        this.list.splice(index, 1)
+      }
     }
-  },
-}
+  }
 </script>
 
 <style lang="less" scoped>
