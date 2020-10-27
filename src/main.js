@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import './styles/index.less'
+import '@/icons' // icon
 
 import { Lazyload, Toast as VantTost, Dialog } from 'vant';
 import Toast from '@/components/Toast'

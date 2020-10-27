@@ -1,6 +1,6 @@
 <template>
   <div class="error">
-    <i class="iconfont iconicon-test1"/>
+    <svg-icon icon-class="404"></svg-icon>
     <h1 @touchstart.prevent="touchStart" @touchend.prevent="touchEnd">404 Not Found</h1>
     <van-button @click="$router.push('/')" type="primary">返回首页</van-button>
     <van-dialog
@@ -79,8 +79,8 @@ export default {
     h1{
       color: @orange;
     }
-    i{
-      font-size: 180px;
+    svg{
+      font-size: 360px;
       color: @orange;
     }
     button{

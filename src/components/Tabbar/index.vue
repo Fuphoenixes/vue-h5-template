@@ -1,17 +1,17 @@
 <template>
   <van-tabbar
-    class="tabbar" 
+    class="tabbar"
     route
     active-color="#FE552E"
     inactive-color="#888"
   >
     <van-tabbar-item to="/">
       <span>店铺</span>
-      <i slot="icon" slot-scope="{active}" class="iconfont" :class="active ? 'icondianpu' : 'icondianpu-xianxing'"/>
+      <svg-icon slot="icon" slot-scope="{active}" :icon-class="active ? 'dianpu' : 'dianpu-xianxing'"></svg-icon>
     </van-tabbar-item>
     <van-tabbar-item to="/statistics">
       <span>统计</span>
-      <i slot="icon" slot-scope="{active}" class="iconfont" :class="active ? 'icontiaoxingtu' : 'icontiaoxingtu-xianxing'"/>
+      <svg-icon slot="icon" slot-scope="{active}" :icon-class="active ? 'tiaoxingtu' : 'tiaoxingtu-xianxing'"></svg-icon>
     </van-tabbar-item>
     <van-tabbar-item>
       <div class="push-img" slot="icon" slot-scope="{active}" @click="push">
@@ -21,11 +21,11 @@
     </van-tabbar-item>
     <van-tabbar-item to="/order">
       <span>订单</span>
-      <i slot="icon" slot-scope="{active}" class="iconfont" :class="active ? 'icondanju' : 'icondanju-xianxing'"/>
+      <svg-icon slot="icon" slot-scope="{active}" :icon-class="active ? 'danju' : 'danju-xianxing'"></svg-icon>
     </van-tabbar-item>
     <van-tabbar-item to="/me">
       <span>我的</span>
-      <i slot="icon" slot-scope="{active}" class="iconfont" :class="active ? 'iconyonghu' : 'iconyonghu-xianxing'"/>
+      <svg-icon slot="icon" slot-scope="{active}" :icon-class="active ? 'yonghu' : 'yonghu-xianxing'"></svg-icon>
     </van-tabbar-item>
   </van-tabbar>
 </template>
@@ -56,7 +56,7 @@
   .tabbar{
     height: 100px;
   }
-  .iconfont{
+  .svg-icon{
     font-size: 44px;
   }
   .push-text{
@@ -75,7 +75,7 @@
     align-items: center;
     justify-content: center;
     border-radius:50%;
-    border-top: 1px solid gold; 
+    border-top: 1px solid gold;
     background: #fff;
     img{
       width: 78px;

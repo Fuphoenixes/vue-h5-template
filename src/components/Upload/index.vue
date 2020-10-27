@@ -4,12 +4,8 @@
       {{title}}
     </div>
     <div class="image-picker">
-      <div v-show="selectable" class="input-item">
-        <i class="iconfont iconjia"/>
-        <input type="file" :multiple="multi" :accept="accept" @change="uploadEvent" :key="JSON.stringify(renderImages)"/>
-      </div>
       <div v-for="(item,index) in renderImages" class="image-item" key="index">
-        <div 
+        <div
           class="image"
           :style='{backgroundImage: `url("${item.url}")`}'
           @click="onImageClick(index)"
@@ -21,8 +17,12 @@
           <span>{{parseInt(item.percent)}}%</span>
         </div>
         <div v-show="item.error" class="image-bg">
-          <i class="iconfont iconshanchucha"/>
+          <svg-icon icon-class="shanchucha" class-name="shanchucha"></svg-icon>
         </div>
+      </div>
+      <div v-show="selectable" class="input-item">
+        <svg-icon icon-class="jia"></svg-icon>
+        <input type="file" :multiple="multi" :accept="accept" @change="uploadEvent" :key="JSON.stringify(renderImages)"/>
       </div>
     </div>
   </div>
@@ -50,7 +50,7 @@
       domain: { //七牛的 domain
         type: String,
         default:'http://image.haoyunqi.com.cn/'
-      }, 
+      },
       onlyOne: { //可选，默认false，传true时，表示只能上传一张图片
         type: Boolean,
         default: false
@@ -71,11 +71,11 @@
       maxLimit: { //限制最大上传张数，默认为10张
         type: Number,
         default: 10
-      }, 
+      },
       onceLimit: { //限制一次性上传的张数，默认为10张
         type: Number,
         default: 10
-      }, 
+      },
       disable: {  //禁止上传，只能预览
         type: Boolean,
         default: false
@@ -243,7 +243,7 @@
     font-size: 0;
     border: 1px solid #ccc;
     position: relative;
-    i{
+    svg {
       font-size: 60px;
       color: #ccc;
       position: absolute;
@@ -272,7 +272,7 @@
     .image-close{
       position: absolute;
       top:-5px ;
-      left: -5px ;
+      right: -5px ;
       z-index:10;
       img{
         width: 32px;
@@ -291,14 +291,10 @@
       justify-content: center;
       color: #fff;
       border-radius: 3px;
-      .iconfont{
+      .svg-icon {
         font-size: 40px;
       }
-      .icon-loading{
-        color: #fff;
-        animation: rotate 1s linear infinite;
-      }
-      .iconshanchucha{
+      .shanchucha{
         color: red;
       }
     }

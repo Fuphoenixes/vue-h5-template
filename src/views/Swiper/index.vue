@@ -37,7 +37,7 @@
 import { NavBar, Button, Field, Cell, CellGroup, SwitchCell } from 'vant';
 import Upload from '@/components/Upload'
 import { timeout } from '@/utils'
-import { getCachedViewByName } from '@/utils/getCachedViewByName'
+import getCachedViewByName from '@/utils/getCachedViewByName'
 
 export default {
   name:'swiper',
@@ -117,7 +117,7 @@ export default {
     .input-item,.image-item{
       width: 675px !important;
       height: 322px !important;
-      .iconjia{
+      svg {
         font-size: 80px !important;
       }
     }

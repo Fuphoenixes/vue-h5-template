@@ -14,7 +14,7 @@
           </van-swipe-item>
         </van-swipe>
         <div class="swipe-edit" @click="editSwiper">
-          <i class="iconfont iconedit" />
+          <svg-icon icon-class="edit"></svg-icon>
         </div>
       </div>
       <div class="section">
@@ -35,7 +35,7 @@
                   ￥<span>36.0</span>
                 </div>
                 <div class="good-aside-edit" @click="editGoods">
-                  <i class="iconfont iconedit"/>
+                  <svg-icon icon-class="edit"></svg-icon>
                 </div>
               </div>
             </div>
@@ -124,7 +124,7 @@ export default {
       justify-content: center;
       background: rgba(0,0,0,0.30);
       border-radius: 50%;
-      i{
+      svg {
         color: #fff;
         font-size: 32px;
         margin-left: 4px;
@@ -171,7 +171,7 @@ export default {
         background-image: linear-gradient(-220deg, #FFCB5B 2%, #FE9C2E 100%);
         border-radius: 50%;
         box-shadow: 0 0 10px 0 rgba(255,203,91,0.66);
-        i{
+        svg {
           color: #fff;
           font-size: 32px;
           margin-left: 3px;
