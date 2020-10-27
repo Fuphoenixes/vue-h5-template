@@ -40,12 +40,13 @@
       },
       // 设置缓存页面， 前进加载后退缓存
       _changeCachedViews(to) {
-        if (!to.meta || !to.meta.level) return
+        if (!to.meta || !to.meta.level || !to.name) return
         const routes = this.$router.options.routes
         this.cachedViews = this.cachedViews.filter(item => {
           const itRoute = routes.find(route => route.name === item)
           return itRoute && itRoute.meta && itRoute.meta.level < to.meta.level
         })
+        this.cachedViews.push(to.name)
       },
       afterEnter() {
         this.$bus.$emit('afterRouteEnter')
