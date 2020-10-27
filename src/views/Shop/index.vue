@@ -51,7 +51,7 @@
 <script>
 import { Swipe, SwipeItem, Image, Row, Col } from 'vant';
 import Tabbar from '@/components/Tabbar'
-import timeout from '@/utils/timeout.js'
+import { timeout } from '@/utils'
 
 const banner = require('../../assets/banner.png');
 const good = require('../../assets/good.png');

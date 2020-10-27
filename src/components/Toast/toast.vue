@@ -5,6 +5,7 @@
     :type="type"
     :message="message"
     :duration="duration"
+    :forbid-click="forbidClick"
   ></van-toast>
 </template>
 
@@ -23,6 +24,10 @@
       duration:{
         type: Number,
         default: 0
+      },
+      forbidClick: {
+        type: Boolean,
+        default: true
       }
     },
   }

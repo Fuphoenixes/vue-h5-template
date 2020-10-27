@@ -36,8 +36,8 @@
 <script>
 import { NavBar, Button, Field, Cell, CellGroup, SwitchCell } from 'vant';
 import Upload from '@/components/Upload'
-import timeout from '@/utils/timeout.js'
-import { getViewInstanceByName } from '@/store/cachedViews.js'
+import { timeout } from '@/utils'
+import { getCachedViewByName } from '@/utils/getCachedViewByName'
 
 export default {
   name:'swiper',
@@ -67,7 +67,7 @@ export default {
       this.sort = 5
     },
     submit(){
-      const instance = getViewInstanceByName('shop');
+      const instance = getCachedViewByName('shop');
       instance && instance.getList();
     }
   }

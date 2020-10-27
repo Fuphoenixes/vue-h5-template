@@ -7,7 +7,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "@searchfe/user-agent": "^1.2.7",
+    "axios": "^0.21.0",
     "core-js": "^2.6.5",
     "qiniu-js": "^2.5.4",
     "v-loading-plugin": "^1.0.7",

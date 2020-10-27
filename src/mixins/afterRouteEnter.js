@@ -1,5 +1,5 @@
 /**
- * 添加路由进入完成钩子 afterRouteEnter
+ * 添加路由过渡动画完成钩子 afterRouteEnter
  *  */
 export default {
   created(){

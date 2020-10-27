@@ -1,4 +1,5 @@
 @import './base.less';
+@import './vant.less';
 
 //样式reset
 html{
@@ -14,38 +15,11 @@ body{
 }
 
 //color  颜色样式
- .black { color:#000;} 
- .white { color:#fff;} 
- .red { color:#FE552E;} 
- .blue { color:#1989fa;} 
- .orange { color:#ff976a;} 
-
-
-//Vant  重置样式
-.van-nav-bar{
-  background-color: #FE552E !important;
-  z-index: 2 !important;
-  color: #fff;
-  .van-nav-bar__left{
-    .van-icon,.van-nav-bar__text{
-      color: #fff !important;
-    }
-  }
-  .van-nav-bar__title{
-    color: #fff !important;
-  }
-  .van-nav-bar__text:active {
-    background-color: transparent !important;
-  }
-}
-.van-cell:not(:last-child){
-  .border-1px-bottom(#ebedf0)
-}
-
-.van-tabbar--fixed{
-  position: absolute !important;
-}
-
+ .black { color:#000;}
+ .white { color:#fff;}
+ .red { color:#FE552E;}
+ .blue { color:#1989fa;}
+ .orange { color:#ff976a;}
 
 //全局样式
 .page-content{
@@ -95,7 +69,7 @@ body{
     width: initial;
     height: initial;
     z-index: -1 !important; //将副阴影置于主阴影下
-    box-shadow: 0 0 20px rgba(0,0,0,0.7); 
+    box-shadow: 0 0 20px rgba(0,0,0,0.7);
     border-radius: 100px/10px;
   }
 }
@@ -135,5 +109,5 @@ body{
   *::-webkit-scrollbar-track-piece {
     background: #f5f5f5;
   }
-  
+
 }
