@@ -205,96 +205,96 @@
 </script>
 
 <style lang="less" scoped>
-.upload{
-  background: #fff;
+.upload {
   padding: 20px 0 10px;
-  .title{
+  background: #fff;
+  .title {
     margin-left: 30px;
-    white-space: nowrap;
-    color: #000;
     font-size: 34px;
+    color: #000;
+    white-space: nowrap;
   }
 }
-.close{
+.close {
   position: fixed;
-  right: 20px;
   top: 20px;
+  right: 20px;
   z-index: 100000000;
-  color: #fff;
   width: 60px;
   height: 60px;
-  text-align: center;
   line-height: 60px;
-  i{
+  color: #fff;
+  text-align: center;
+  i {
     font-size: 40px;
   }
 }
-.image-picker{
-  padding: 16px;
-  padding-left: 30px;
+.image-picker {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  .input-item{
+  padding: 16px;
+  padding-left: 30px;
+  .input-item {
+    position: relative;
     width: 155px;
     height: 155px;
     margin-right: 10px;
-    border-radius: 3px;
     font-size: 0;
     border: 1px solid #ccc;
-    position: relative;
+    border-radius: 3px;
     svg {
-      font-size: 60px;
-      color: #ccc;
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%,-50%);
+      font-size: 60px;
+      color: #ccc;
+      transform: translate(-50%, -50%);
     }
-    input{
+    input {
       display: block;
       width: 100%;
       height: 100%;
       opacity: 0;
     }
   }
-  .image-item{
+  .image-item {
+    position: relative;
     width: 155px;
     height: 155px;
     margin-right: 10px;
-    position: relative;
-    .image{
-      border-radius: 3px;
+    .image {
       width: 100%;
       height: 100%;
       background-size: cover;
+      border-radius: 3px;
     }
-    .image-close{
+    .image-close {
       position: absolute;
-      top:-5px ;
-      right: -5px ;
-      z-index:10;
-      img{
+      top: -5px;
+      right: -5px;
+      z-index: 10;
+      img {
         width: 32px;
         height: 32px;
       }
     }
-    .image-bg{
+    .image-bg {
       position: absolute;
       top: 0;
-      left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(0,0,0,.6);
+      left: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #fff;
+      background: rgba(0, 0, 0, 0.6);
       border-radius: 3px;
       .svg-icon {
         font-size: 40px;
       }
-      .shanchucha{
+      .shanchucha {
         color: red;
       }
     }
@@ -302,7 +302,7 @@
 }
 </style>
 <style>
-  .van-image-preview__overlay{
-    background-color:rgba(0,0,0,.7) !important;
+  .van-image-preview__overlay {
+    background-color: rgba(0, 0, 0, 0.7) !important;
   }
 </style>

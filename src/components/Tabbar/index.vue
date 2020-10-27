@@ -57,20 +57,18 @@
 </script>
 
 <style lang="less" scoped>
-  .tabbar{
+  .tabbar {
     height: 100px;
   }
-  .svg-icon{
+  .svg-icon {
     font-size: 44px;
   }
-  .push-text{
+  .push-text {
     position: absolute;
     bottom: -24px;
     font-size: 24px;
   }
-  .push-img{
-    width: 84px;
-    height: 84px;
+  .push-img {
     position: absolute;
     top: -66px;
     left: -40px;
@@ -78,10 +76,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius:50%;
-    border-top: 1px solid gold;
+    width: 84px;
+    height: 84px;
     background: #fff;
-    img{
+    border-top: 1px solid gold;
+    border-radius: 50%;
+    img {
       width: 78px;
       height: 78px;
     }

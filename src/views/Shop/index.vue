@@ -90,91 +90,90 @@
 </script>
 
 <style lang="less" scoped>
-  .home{
+  .home {
     bottom: 100px;
-    background: #fff;
     padding-bottom: 20px;
-    /deep/
-    .van-swipe__indicators{
+    background: #fff;
+    /deep/ .van-swipe__indicators {
       bottom: 12px;
-      .van-swipe__indicator{
+      .van-swipe__indicator {
         width: 16px;
         height: 16px;
-        box-sizing: border-box;
-        border: 1px solid #fff;
         background: transparent;
+        border: 1px solid #fff;
         opacity: 1;
+        box-sizing: border-box;
       }
     }
   }
-  .swipe{
+  .swipe {
     height: 358px;
   }
-  .swipe-wrapper{
+  .swipe-wrapper {
     position: relative;
-    .swipe-edit{
+    .swipe-edit {
       position: absolute;
-      z-index: 10;
-      bottom: 16px;
       right: 46px;
-      height: 58px;
-      width: 58px;
+      bottom: 16px;
+      z-index: 10;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(0,0,0,0.30);
+      width: 58px;
+      height: 58px;
+      background: rgba(0, 0, 0, 0.3);
       border-radius: 50%;
       svg {
-        color: #fff;
-        font-size: 32px;
         margin-left: 4px;
+        font-size: 32px;
+        color: #fff;
       }
     }
   }
-  .goods{
-    margin: 30px 20px 0!important;
+  .goods {
+    margin: 30px 20px 0 !important;
   }
-  .good{
-    background: #FFFFFF;
-    box-shadow: 0 0 10px 0 rgba(109,155,192,0.36);
-    border-radius: 12px;
-    margin-top: 14px;
+  .good {
     padding: 16px;
-    &-img{
+    margin-top: 14px;
+    background: #FFF;
+    border-radius: 12px;
+    box-shadow: 0 0 10px 0 rgba(109, 155, 192, 0.36);
+    &-img {
       width: 100%;
       height: 228px;
-      background: rgba(255,245,235,0.50);
+      background: rgba(255, 245, 235, 0.5);
     }
-    &-dec{
+    &-dec {
       font-size: 30px;
       color: #242424;
     }
-    &-aside{
-      height: 60px;
+    &-aside {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      &-price{
-        color: @red;
+      height: 60px;
+      &-price {
         font-size: 22px;
         font-weight: bold;
-        span{
+        color: @red;
+        span {
           font-size: 34px;
         }
       }
-      &-edit{
-        height: 58px;
-        width: 58px;
+      &-edit {
         display: flex;
         align-items: center;
         justify-content: center;
+        width: 58px;
+        height: 58px;
         background-image: linear-gradient(-220deg, #FFCB5B 2%, #FE9C2E 100%);
         border-radius: 50%;
-        box-shadow: 0 0 10px 0 rgba(255,203,91,0.66);
+        box-shadow: 0 0 10px 0 rgba(255, 203, 91, 0.66);
         svg {
-          color: #fff;
-          font-size: 32px;
           margin-left: 3px;
+          font-size: 32px;
+          color: #fff;
         }
       }
     }

@@ -71,50 +71,50 @@
 </script>
 
 <style lang="less" scoped>
-  .push{
+  .push {
     top: 92px;
-    background: #fff;
     bottom: 140px;
+    background: #fff;
   }
-  .list{
+  .list {
     padding: 50px 30px 0;
-    .item{
-      margin-bottom: 16px;
+    .item {
       display: flex;
       align-items: center;
-      input{
-        outline: none;
-        border: 1px solid #E6E6E6;
-        border-radius: 6px;
+      margin-bottom: 16px;
+      input {
         width: 280px;
         height: 92px;
-        margin-right: 15px;
         padding: 10px;
+        margin-right: 15px;
+        border: 1px solid #E6E6E6;
+        border-radius: 6px;
+        outline: none;
         box-sizing: border-box;
       }
-      button{
+      button {
         height: 80px;
-        line-height: 76px;
         padding: 0 28px;
+        line-height: 76px;
       }
     }
   }
 
 </style>
 <style lang="less">
-  .push{
-    .van-cell{
+  .push {
+    .van-cell {
       font-size: 32px;
     }
-    .van-cell__title{
-      font-weight: bold;
+    .van-cell__title {
       width: 180px;
+      font-weight: bold;
       flex: none;
     }
-    .van-cell__value{
+    .van-cell__value {
       text-align: left;
     }
-    .upload .title{
+    .upload .title {
       color: #888;
     }
   }

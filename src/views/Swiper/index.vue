@@ -75,53 +75,54 @@
 </script>
 
 <style lang="less" scoped>
-  .swiper{
+  .swiper {
     top: 92px;
-    background: #fff;
     bottom: 140px;
+    background: #fff;
   }
-  .pagination{
-    height: 124px;
+  .pagination {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 124px;
     padding: 0 30px;
     color: #000;
-    button{
+    button {
       width: 168px;
       height: 94px;
       border-radius: 10px;
     }
-    span{
+    span {
       font-size: 30px;
     }
   }
-  .tip{
-    color: #888;
-    font-size: 24px;
+  .tip {
     padding-left: 30px;
+    font-size: 24px;
+    color: #888;
   }
 </style>
 <style lang="less">
-  .swiper{
-    .van-cell__title{
-      font-weight: bold;
-      font-size: 32px;
+  .swiper {
+    .van-cell__title {
       width: 180px;
+      font-size: 32px;
+      font-weight: bold;
       flex: none;
     }
-    .van-cell__value{
-      text-align: left;
+    .van-cell__value {
       font-size: 32px;
+      text-align: left;
     }
-    .input-item,.image-item{
+    .input-item,
+    .image-item {
       width: 675px !important;
       height: 322px !important;
       svg {
         font-size: 80px !important;
       }
     }
-    .upload .title{
+    .upload .title {
       color: #888;
     }
   }

@@ -73,28 +73,28 @@
 </script>
 
 <style lang="less" scoped>
-  .error{
-    text-align: center;
+  .error {
     padding-top: 120px;
-    h1{
+    text-align: center;
+    h1 {
       color: @orange;
     }
-    svg{
+    svg {
       font-size: 360px;
       color: @orange;
     }
-    button{
+    button {
       margin-top: 20px;
     }
   }
-  .password{
-    margin: 40px 0;
-    padding: 8px 10px;
-    border-radius: 8px;
-    width: 180px;
+  .password {
     display: inline-block;
+    width: 180px;
+    padding: 8px 10px;
+    margin: 40px 0;
     border: 1px solid #ccc;
-    input{
+    border-radius: 8px;
+    input {
       width: 100%;
       border: none;
       outline: none;

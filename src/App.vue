@@ -72,39 +72,44 @@
 <style lang="less">
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    font-size: 30px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: @text-color;
-    font-size: 30px;
   }
 
   .router {
     position: absolute;
-    left: 0;
-    bottom: 0;
     top: 0;
     right: 0;
+    bottom: 0;
+    left: 0;
     background: @background-color;
+
+    /* -webkit-backface-visibility: hidden; */
     backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
   }
 
-  .slide-right-enter-active, .slide-right-leave-active, .slide-left-enter-active {
-    transition: transform .3s;
+  .slide-right-enter-active,
+  .slide-right-leave-active,
+  .slide-left-enter-active {
+    transition: transform 0.3s;
     will-change: transform;
   }
 
   .slide-left-leave-active {
-    transition: transform .3s .1s;
+    transition: transform 0.3s 0.1s;
     will-change: transform;
   }
 
-  .slide-left-enter, .slide-right-leave-active {
+  .slide-left-enter,
+  .slide-right-leave-active {
     z-index: 1000000;
     //box-shadow: rgba(0,0,0,.3) pxToRem(-10) 0 pxToRem(5);
   }
 
-  .slide-left-enter-to, .slide-left-leave-to {
+  .slide-left-enter-to,
+  .slide-left-leave-to {
     z-index: inherit;
   }
 
