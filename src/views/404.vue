@@ -76,6 +76,7 @@
   .error {
     padding-top: 120px;
     text-align: center;
+
     h1 {
       color: @orange;
     }

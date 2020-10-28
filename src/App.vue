@@ -49,7 +49,7 @@
         this.cachedViews.push(to.name)
       },
       afterEnter() {
-        this.$bus.$emit('afterRouteEnter')
+        this.$bus.$emit('after-route-enter')
       }
     },
     render(h) {
