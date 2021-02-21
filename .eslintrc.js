@@ -23,6 +23,7 @@ module.exports = {
     }],
     "vue/singleline-html-element-content-newline": "off",
     "vue/multiline-html-element-content-newline":"off",
+    "vue/component-definition-name-casing": ["error", "kebab-case"],
     "vue/name-property-casing": "off",
     "vue/require-valid-default-prop": "off",
     "vue/require-prop-types": "off",
