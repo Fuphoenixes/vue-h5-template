@@ -1,98 +1,16 @@
 @import './base.less';
 @import './vant.less';
 
-//样式reset
-html {
-  overflow: hidden;
-  background: @background-color;
-}
-
-body {
-  position: relative;
-  min-height: 100vh;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-//color  颜色样式
-.black { color: #000; }
-.white { color: #fff; }
-.red { color: #FE552E; }
-.blue { color: #1989fa; }
-.orange { color: #ff976a; }
-
-//全局样式
-.page-content {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  overflow-y: auto;
-}
-
-
-//底部大按钮
-.page-button > button {
-  z-index: 0;
-  display: block;
-  width: 670px !important;
-  height: 80px !important;
-  margin: 0 auto;
-  color: #fff;
-  background: linear-gradient(-216deg, #FE822E 0%, #FE2E4F 100%);
-  border: none !important;
-  border-radius: 6px;
-  span {
-    position: relative;
-    z-index: 1;
-    font-size: 30px;
-  }
-  &::before {
-    background: linear-gradient(-216deg, #FE822E 0%, #FE2E4F 100%);
-    opacity: 1 !important;
-  }
-  &:active {
-    &::before {
-      background: linear-gradient(-216deg, rgb(252, 111, 18) 0%, rgb(201, 25, 54) 100%);
-    }
-  }
-  &::after {
-    position: absolute;
-    top: 50%; //设置宽高仅仅设置上下左右边距是为了让系统自动定位。
-    right: 10px;
-    bottom: 1px;
-    left: 10px;
-    z-index: -1 !important; //将副阴影置于主阴影下
-    width: initial;
-    height: initial;
-    background: transparent;
-    border-radius: 100px/10px;
-    content: " ";
-    transform: none;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-  }
-}
-
-.page-button {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 20px 0 40px;
-  background: #fff;
-}
-
 /* 手机端CSS代码 */
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 960px) {
   //滚动条
-  *::-webkit-scrollbar {/* 滚动条整体样式 */
-    display: none;
-  }
+  //*::-webkit-scrollbar {/* 滚动条整体样式 */
+  //  display: none;
+  //}
 }
 
 /* 电脑端CSS代码 */
-@media screen and (min-width: 750px) {
+@media only screen and (min-width: 960px) {
   //滚动条
   *::-webkit-scrollbar {/* 滚动条整体样式 */
     width: 6px;     /* 高宽分别对应横竖滚动条的尺寸 */
@@ -108,5 +26,56 @@ body {
   }
   *::-webkit-scrollbar-track-piece {
     background: #f5f5f5;
+  }
+}
+
+//样式reset
+html {
+  overflow: hidden;
+  background: @background-color;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  margin: 0 auto !important;
+  overflow: hidden;
+}
+
+//color  颜色样式
+.black { color: #000; }
+.white { color: #fff; }
+.red { color: #FE552E; }
+.blue { color: #1989fa; }
+.orange { color: #ff976a; }
+.green { color: #07c160; }
+
+//全局样式
+.page-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+}
+
+// 底部大按钮
+.page-btn.van-button {
+  display: block;
+  width: 343px;
+  height: 50px;
+  margin: 40px auto;
+  background-image: linear-gradient(90deg, #49E387 2%, #35D374 99%);
+  border-radius: 25px;
+  &:active {
+    background-image: linear-gradient(90deg, #35D374 2%, #13b152 99%);
+  }
+  .van-button__text {
+    font-size: 18px;
+    color: #fff;
+  }
+  .van-button__loading {
+    color: #fff;
   }
 }

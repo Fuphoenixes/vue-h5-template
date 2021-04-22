@@ -1,7 +1,7 @@
 module.exports = {
-  //rem配置
+  // rem配置
   'rem': '100rem',
-  //color variables
+  // color variables
   'black': '#000',
   'white': '#fff',
   'red': '#FE552E',
@@ -22,8 +22,8 @@ module.exports = {
   'background-color': '#f8f8f8',
   'background-color-light': '#fafafa',
 
-  //组件主题
+  // 组件主题
   'switch-on-background-color': '@orange',
   'button-primary-background-color': '@orange',
-  'button-primary-border-color': '@orange',
+  'button-primary-border-color': '@orange'
 }

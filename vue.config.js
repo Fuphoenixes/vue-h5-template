@@ -1,6 +1,12 @@
 const path = require('path');
 const apiMocker = require('webpack-api-mocker');
 const CompressionPlugin = require("compression-webpack-plugin");
+const VConsolePlugin = require('vconsole-webpack-plugin')
+
+const argv = require('yargs')
+  .describe('debug', 'debug 环境') // use 'webpack --debug'
+  .argv
+
 
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -23,18 +29,23 @@ module.exports = {
   lintOnSave: process.env.NODE_ENV !== 'production',
 	productionSourceMap: false,
 	configureWebpack: () =>{
-		if(process.env.NODE_ENV === 'production'){
-			return{
-				plugins: [
-				  // gzip
-					new CompressionPlugin({
-						test:/\.js$|\.html$|\.css$/, //匹配文件名
-						threshold: 10240,//对超过10k的数据压缩
-						deleteOriginalAssets: false //不删除源文件
-					})
-				]
-			}
-		}
+    return {
+      plugins: [
+        new VConsolePlugin({
+          enable: !!argv.debug
+        }),
+        ...(
+          process.env.NODE_ENV === 'production' ? [
+            // gzip
+            new CompressionPlugin({
+              test: /\.js$|\.html$|\.css$/, // 匹配文件名
+              threshold: 10240, // 对超过10k的数据压缩
+              deleteOriginalAssets: false // 不删除源文件
+            })
+          ] : []
+        )
+      ]
+    }
 	},
   chainWebpack(config) {
 
